@@ -1,0 +1,136 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "Lexend Deca";
+  src: url(./assets/fonts/LexendDeca-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "Big Shoulders Display";
+  src: url(./assets/fonts/BigShoulders-VariableFont_opsz\,wght.ttf);
+}
+:root {
+  /* ======= color ======= */
+  --bright-orange: hsl(31, 77%, 52%);
+  --dark-cyan: hsl(184, 100%, 22%);
+  --very-dark-cyan: hsl(179, 100%, 13%);
+  /* for paragraph */
+  --white: hsla(0, 0%, 100%, 0.75);
+  /* background, headings, buttons */
+  --very-light-gray: hsl(0, 0%, 95%);
+
+  /* ======= typoghraphy ======= */
+  --font-family: "Lexend Deca";
+  --font-family-2: "Big Shoulders Display";
+  --font-medium: 400;
+  --font-bold: 700;
+}
+
+/* Main container styling */
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: #f2f2f2;
+}
+
+/* NOTE: start design desktop first */
+/* Card container using Flexbox */
+.cards-wrapper {
+  display: flex;
+  max-width: 920px;
+  border-radius: 8px;
+  /* COMMENT: to make border-radius appear without problem */
+  overflow: hidden;
+}
+
+/* Individual card styling */
+.card {
+  flex: 1;
+  padding: 48px;
+  color: white;
+}
+
+/* Card specific colors */
+.sedan {
+  background: var(--bright-orange);
+}
+.suv {
+  background: var(--dark-cyan);
+}
+.luxury {
+  background: var(--very-dark-cyan);
+}
+
+/* Card content styling */
+.card img {
+  width: 70px;
+}
+.card h2 {
+  font-family: "Big Shoulders Display", cursive;
+  font-weight: var(--font-bold);
+  font-size: 2.5rem;
+  margin: 35px 0;
+}
+
+.card p {
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: var(--font-medium);
+  color: var(--white);
+  line-height: 1.6;
+  margin-bottom: 80px;
+}
+
+/* Button styling */
+.learn-more {
+  text-decoration: none;
+  background: var(--very-light-gray);
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-family: "Lexend Deca", sans-serif;
+  display: inline-block;
+  border: 2px solid var(--very-light-gray);
+}
+
+/* Button hover effects */
+.sedan .learn-more {
+  color: var(--bright-orange);
+}
+.suv .learn-more {
+  color: var(--dark-cyan);
+}
+.luxury .learn-more {
+  color: var(--very-dark-cyan);
+}
+/* COMMENT: use transparent hover */
+.learn-more:hover {
+  background: transparent;
+  color: white !important;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .cards-wrapper {
+    flex-direction: column;
+    margin: 20px 0;
+    /* width: 400px; */
+  }
+
+  .card {
+    padding: 40px;
+  }
+
+  .card p {
+    margin-bottom: 30px;
+  }
+
+  /* Add separator between cards */
+  .card:not(:last-child) {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  }
+}
